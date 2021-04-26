@@ -1,4 +1,4 @@
-// This file: kickstarts the app, takes all react components and mounts/renders it to the DOM, linked to "root" in index.html
+// This file: kickstarts the app, takes all react components and mounts/renders it to the DOM at "root", see "root" in index.html
 
 import React from 'react';
 import ReactDOM from 'react-dom';
