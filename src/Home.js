@@ -1,34 +1,26 @@
-// useState hook to make name var reactive and to re-render the name variable that has changed value
+// useState hook to make blogs reactive and output list of blogs
 
 import { useState } from 'react';
 
 const Home = () => {
-    // let name = 'mario';
-    const [name, setName] = useState('mario');
-    const [age, setAge] = useState('25');
+    const [blogs, setBlogs] = useState([
+        { title: ' blog1', body: 'blog1_description', author: 'fiona', id: 1 },
+        { title: 'blog2', body: 'blog2_description', author: 'brandon', id: 2 },
+        { title: 'blog3', body: 'blog3_description', author: 'ben', id: 3 }
+    ])
+;
 
-    // setName and setAge triggers re-render
-    const handleClick = () => {
-        setName('luigi');
-        setAge(30);
-
-        console.log(name);
-/*         console.log('hello, ninjas', e);
-    }
-
-    const handleClickAgain = (name, e) => {
-        console.log('hello ' + name, e.target); */
-    }
-
-
-    // the template
+// cycle through each blog object in the blogs array (map) and render jsx template with blog properties (title, id, author)
+// react uses key attribute to keep track of each item in array 
     return ( 
         <div className="home">
-            <h2>Homepage</h2>
-            <p>{ name } is { age } years old</p>
-            <button onClick={handleClick}>Click me</button>
-{/*             <button onClick={(e) => handleClickAgain('mario', e)}>Click me again</button>
- */}        </div>
+            {blogs.map( (blog) => (
+                <div className="blog-preview" key={ blog.id }>
+                    <h2>{ blog.title }</h2>
+                    <p>Written by { blog.author }</p>
+                </div> 
+            ))}
+        </div>
      );
 }
  
